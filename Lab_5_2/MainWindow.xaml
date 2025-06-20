@@ -1,0 +1,30 @@
+﻿<Window x:Class="FractalSky.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Хмарне небо (Фрактали)" Height="700" Width="900">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="200" Background="LightGray" Margin="10">
+            <TextBlock Text="Параметри" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Порядок фракталу (K):"/>
+            <Slider x:Name="OrderSlider" Minimum="5" Maximum="15" Value="12" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            <TextBlock Text="{Binding ElementName=OrderSlider, Path=Value}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Кількість хмар:"/>
+            <Slider x:Name="CloudCountSlider" Minimum="1" Maximum="10" Value="3" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            <TextBlock Text="{Binding ElementName=CloudCountSlider, Path=Value}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Довжина відрізка:"/>
+            <Slider x:Name="LengthSlider" Minimum="2" Maximum="10" Value="4"/>
+            <TextBlock Text="{Binding ElementName=LengthSlider, Path=Value}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Насиченість кольору:"/>
+            <Slider x:Name="ColorSlider" Minimum="50" Maximum="255" Value="180"/>
+            <TextBlock Text="{Binding ElementName=ColorSlider, Path=Value}" Margin="0,0,0,10"/>
+
+            <Button Content="Згенерувати" Click="GenerateButton_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+
+        <Canvas x:Name="FractalCanvas" Background="LightSkyBlue"/>
+    </DockPanel>
+</Window>
